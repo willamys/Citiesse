@@ -10,5 +10,10 @@
 		<managed-bean-class>bean.TestCaseBean</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>testCaseSetupBean</managed-bean-name>
+		<managed-bean-class>bean.TestCaseSetupBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 
 </faces-config>

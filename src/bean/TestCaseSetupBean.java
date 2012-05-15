@@ -17,11 +17,11 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class TestCaseSetupBean {
 
-    private Testcasesetup testCaseSetup = null;
-    private List<Testcasesetup> testCaseSetups = new ArrayList<Testcasesetup>();
+    private Testcasesetup testCaseSetup = new Testcasesetup();
+    private List<Testcasesetup> testCaseSetups;
 
     public TestCaseSetupBean() {
-        listAll();
+        //listAll();
     }
 
     private TestCaseSetupDAOImpl getPersistence() {
@@ -37,6 +37,8 @@ public class TestCaseSetupBean {
     }
 
     public List<Testcasesetup> getTestCaseSetups() {
+    	testCaseSetups = new ArrayList<Testcasesetup>();
+    	testCaseSetups = getPersistence().listAllOrderBy("descriptionsetup");
         return testCaseSetups;
     }
 
@@ -56,6 +58,45 @@ public class TestCaseSetupBean {
             }
         }
         return suggestions;
+    }
+    
+    public void adjust() {
+        testCaseSetup.setDescriptionsetup(testCaseSetup.getDescriptionsetup().toLowerCase());
+        testCaseSetup.setNote(testCaseSetup.getNote().toLowerCase());
+    }
+    
+    public String save() {
+        try {
+            adjust();
+            getPersistence().save(testCaseSetup);
+            listAll();
+            new MessageBean().success();
+        } catch (Exception e) {
+            new MessageBean().error();
+        }
+        return "manager";
+    }
+
+    public String update() {
+        try {
+            adjust();
+            getPersistence().update(testCaseSetup);
+            listAll();
+            new MessageBean().success();
+        } catch (Exception e) {
+            new MessageBean().error();
+        }
+        return "manager";
+    }
+
+    public void delete() {
+        try {
+            getPersistence().delete(testCaseSetup);
+            listAll();
+            new MessageBean().success();
+        } catch (Exception e) {
+            new MessageBean().error();
+        }
     }
 }
 

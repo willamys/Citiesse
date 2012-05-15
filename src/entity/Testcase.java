@@ -10,14 +10,28 @@ public class Testcase implements java.io.Serializable {
 	private Integer id;
 	private String descriptionsteps;
 	private String testcasename;
+	private Testcasesetup testcasesetup;
+
+	public Testcasesetup getTestcasesetup() {
+		return testcasesetup;
+	}
+
+	public void setTestcasesetup(Testcasesetup testcasesetup) {
+		this.testcasesetup = testcasesetup;
+	}
 
 	public Testcase() {
 	}
 
-	public Testcase(Integer id,String descriptionsteps, String testcasename) {
+	public Testcase(Integer id) {
+		this.id = id;
+	}
+	
+	public Testcase(Integer id,String descriptionsteps, String testcasename, Testcasesetup testcasesetup) {
 		this.id = id;
 		this.descriptionsteps = descriptionsteps;
 		this.testcasename = testcasename;
+		this.testcasesetup = testcasesetup;
 	}
 
 	public Integer getId() {

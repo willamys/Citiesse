@@ -6,7 +6,6 @@
     <class name="entity.Testcase" table="testcase" catalog="cts_exec">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity" />
         </id>
         <property name="descriptionsteps" type="string">
             <column name="descriptionsteps" length="65535" not-null="true" />
@@ -14,5 +13,6 @@
         <property name="testcasename" type="string">
             <column name="testcasename" length="200" not-null="true" />
         </property>
+        <one-to-one name="testcasesetup" class="entity.Testcasesetup" cascade="all"></one-to-one>
     </class>
 </hibernate-mapping>

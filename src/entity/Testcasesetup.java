@@ -10,8 +10,21 @@ public class Testcasesetup implements java.io.Serializable {
 	private int id;
 	private String note;
 	private String descriptionsetup;
+	private Testcase testcase;
+
+	public Testcase getTestcase() {
+		return testcase;
+	}
+
+	public void setTestcase(Testcase testcase) {
+		this.testcase = testcase;
+	}
 
 	public Testcasesetup() {
+	}
+	
+	public Testcasesetup(int id) {
+		this.id = id;
 	}
 
 	public Testcasesetup(int id, String note, String descriptionsetup) {

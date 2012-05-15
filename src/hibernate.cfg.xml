@@ -13,5 +13,6 @@
 		<property name="connection.pool_size">10</property>
 		<property name="hibernate.current_session_context_class">thread</property>
 		<mapping resource="entity/Testcase.hbm.xml"/>
+		<mapping resource="entity/Testcasesetup.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

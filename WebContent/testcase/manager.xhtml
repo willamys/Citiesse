@@ -25,11 +25,11 @@
                                  paginator="true" rows="10" rowKey="#{testcase.id}">
 
                         <f:facet name="header">
-                            <h:outputText value="clientes"/>
+                            <h:outputText value="Test Cases"/>
                         </f:facet>
 
                         <f:facet name="footer">
-                            <h:outputText value="Total de #{testCaseBean.testcase.id} registro(s)."/>
+                            <h:outputText value="Total de #{testCaseBean.testCases.size()} registro(s)."/>
                         </f:facet>
 
                         <p:column headerText="Id" filterBy="#{testcase.id}">
@@ -46,7 +46,7 @@
                     </p:dataTable>
                 </h:form>
 
-                <p:dialog widgetVar="dlgInfo" modal="true" header="Diálogo">
+                <p:dialog widgetVar="dlgInfo" modal="true" header="Infos">
                     <h:form id="frmInfo" prependId="false">
                         <h:panelGrid columns="2" styleClass="grid" cellpadding="5" cellspacing="5">
                             <h:outputText value="Id" styleClass="label"/>
@@ -61,7 +61,7 @@
                     </h:form>
                 </p:dialog>
 
-                <p:dialog widgetVar="dlgEdit" modal="true" header="Diálogo">
+                <p:dialog widgetVar="dlgEdit" modal="true" header="Update Test Case">
                     <h:form id="frmEdit" prependId="false">
                         <h:panelGrid columns="2" styleClass="grid" cellpadding="5" cellspacing="5">
                             <h:outputText value="Id " styleClass="label"/>
@@ -71,7 +71,7 @@
                             <p:inputText value="#{testCaseBean.testcase.testcasename}"/>
 
                             <h:outputText value="Description Steps (*)" styleClass="label"/>
-                            <p:inputText value="#{testCaseBean.testcase.descriptionsteps}"/>
+                             <p:editor value="#{testCaseBean.testcase.descriptionsteps}"/>
 
                             <h:panelGrid columns="1" styleClass="gridCenter">
                                 <p:commandButton value="Save" actionListener="#{testCaseBean.update}" ajax="false"/>

@@ -1,7 +1,10 @@
 package bean;
 
 import dao.TestCaseDAOImpl;
+import dao.TestCaseSetupDAO;
+import dao.TestCaseSetupDAOImpl;
 import entity.Testcase;
+import entity.Testcasesetup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +20,10 @@ import javax.faces.bean.ViewScoped;
 public class TestCaseBean {
 
     private Testcase testcase = new Testcase();
-    private List<Testcase> testCases = new ArrayList<Testcase>();
+    private List<Testcase> testCases;
 
     public TestCaseBean() {
-        listAll();
+    	//listAll();
     }
 
     private TestCaseDAOImpl getPersistence() {
@@ -36,6 +39,8 @@ public class TestCaseBean {
     }
 
     public List<Testcase> getTestCases() {
+    	testCases = new ArrayList<Testcase>();
+    	testCases = getPersistence().listAllOrderBy("testcasename");
         return testCases;
     }
 
@@ -58,29 +63,41 @@ public class TestCaseBean {
     }
     
     public void adjust() {
+    	
         testcase.setId(testcase.getId());
         testcase.setDescriptionsteps(testcase.getDescriptionsteps().toLowerCase());
         testcase.setTestcasename(testcase.getTestcasename().toLowerCase());
+        
+        Testcasesetup tsetup = new Testcasesetup();
+    	tsetup.setNote("note");
+    	tsetup.setDescriptionsetup("description");
+    	
+        testcase.setTestcasesetup(tsetup);
+        tsetup.setTestcase(testcase);
     }
     
-    public void save() {
+    public String save() {
         try {
             adjust();
             getPersistence().save(testcase);
+            listAll();
             new MessageBean().success();
         } catch (Exception e) {
             new MessageBean().error();
         }
+        return "manager";
     }
 
-    public void update() {
+    public String update() {
         try {
             adjust();
             getPersistence().update(testcase);
+            listAll();
             new MessageBean().success();
         } catch (Exception e) {
             new MessageBean().error();
         }
+        return "manager";
     }
 
     public void delete() {
