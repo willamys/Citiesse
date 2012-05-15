@@ -29,3 +29,17 @@
 .link a:HOVER{
 	 text-decoration: underline;
 }
+.image
+{
+	background-image: url('../images/GMS_Execution_Workflow_v1.0.png');
+	width: auto;
+	height: auto;
+}
+.esmaecer{
+filter:alpha(opacity=30);
+-moz-opacity: 0.30;
+opacity: 0.30;
+}
+.hidden{
+	overflow:hidden; height: 300px; width: 300px; border: 1px solid #000;
+}

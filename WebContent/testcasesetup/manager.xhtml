@@ -13,13 +13,12 @@
 
                 <h:form id="form" prependId="false">
                     <p:growl id="msgs" sticky="true"/>
-
                     <p:contextMenu for="testcase">
                         <p:menuitem value="Propeties" icon="ui-icon ui-icon-search" update=":frmInfo" onclick="dlgInfo.show()"/>
                         <p:menuitem value="Edit" icon="ui-icon ui-icon-person" update=":frmEdit" onclick="dlgEdit.show()"/>
                     </p:contextMenu>
 
-                    <p:dataTable id="testcase" value="#{testCaseSetupBean.testCaseSetups}" var="testCaseSetup"                                 
+                    <p:dataTable  id="testcase" value="#{testCaseSetupBean.testCaseSetups}" var="testCaseSetup"                                 
                                  selectionMode="single" selection="#{testCaseSetupBean.testCaseSetup}"
                                  paginator="true" rows="10" rowKey="#{testCaseSetup.id}">
 
@@ -33,7 +32,7 @@
 
                         <p:column headerText="Id" filterBy="#{testCaseSetup.id}">
                             <h:outputText value="#{testCaseSetup.id}"/>
-                        </p:column>
+                       	 </p:column>
 
                         <p:column headerText="Description Setup" filterBy="#{testCaseSetup.descriptionsetup}">
                             <h:outputText value="#{testCaseSetup.descriptionsetup}"/>
