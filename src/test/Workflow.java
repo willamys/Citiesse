@@ -81,7 +81,9 @@ public class Workflow {
 	}
 	public void execute(){
 		String value = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
+		String css = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("css");
 		t = new Testcase();
+		t.setOrderworkflow(css);
 		t.setDescriptionsteps(recoveryItemList(value));
 		t.setId(Integer.parseInt(value));
 	}
@@ -131,6 +133,12 @@ public class Workflow {
 	}
 	public void executeNine(){
 		String value = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idNine");
+		t = new Testcase();
+		t.setDescriptionsteps(recoveryItemList(value));
+		t.setId(Integer.parseInt(value));
+	}
+	public void executeTen(){
+		String value = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idTen");
 		t = new Testcase();
 		t.setDescriptionsteps(recoveryItemList(value));
 		t.setId(Integer.parseInt(value));

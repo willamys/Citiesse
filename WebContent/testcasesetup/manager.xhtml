@@ -12,46 +12,45 @@
 <body>
 	<ui:composition template="./../template/commonLayout.xhtml">
 		<ui:define name="content">
+			<p:panel header="Teste Cases Setup Manager">
+				<h:form id="form" prependId="false">
+					<p:growl id="msgs" sticky="true" />
+					<p:contextMenu for="testcase">
+						<p:menuitem value="Propeties" icon="ui-icon ui-icon-search"
+							update=":frmInfo" onclick="dlgInfo.show()" />
+						<p:menuitem value="Edit" icon="ui-icon ui-icon-person"
+							update=":frmEdit" onclick="dlgEdit.show()" />
+					</p:contextMenu>
+					<p:dataTable id="testcase"
+						value="#{testCaseSetupBean.testCaseSetups}" var="testCaseSetup"
+						selectionMode="single"
+						selection="#{testCaseSetupBean.testCaseSetup}" paginator="true"
+						rows="10" rowKey="#{testCaseSetup.id}">
 
-			<h:form id="form" prependId="false">
-				<p:growl id="msgs" sticky="true" />
-				<p:contextMenu for="testcase">
-					<p:menuitem value="Propeties" icon="ui-icon ui-icon-search"
-						update=":frmInfo" onclick="dlgInfo.show()" />
-					<p:menuitem value="Edit" icon="ui-icon ui-icon-person"
-						update=":frmEdit" onclick="dlgEdit.show()" />
-				</p:contextMenu>
+						<f:facet name="header">
+							<h:outputText value="Test Case Setup" />
+						</f:facet>
 
-				<p:dataTable id="testcase"
-					value="#{testCaseSetupBean.testCaseSetups}" var="testCaseSetup"
-					selectionMode="single"
-					selection="#{testCaseSetupBean.testCaseSetup}" paginator="true"
-					rows="10" rowKey="#{testCaseSetup.id}">
+						<f:facet name="footer">
+							<h:outputText
+								value="Total de #{testCaseSetupBean.testCaseSetups.size()} registro(s)." />
+						</f:facet>
 
-					<f:facet name="header">
-						<h:outputText value="Test Case Setup" />
-					</f:facet>
+						<p:column headerText="Id" filterBy="#{testCaseSetup.id}">
+							<h:outputText value="#{testCaseSetup.id}" />
+						</p:column>
 
-					<f:facet name="footer">
-						<h:outputText
-							value="Total de #{testCaseSetupBean.testCaseSetups.size()} registro(s)." />
-					</f:facet>
+						<p:column headerText="Description Setup"
+							filterBy="#{testCaseSetup.descriptionsetup}">
+							<h:outputText value="#{testCaseSetup.descriptionsetup}" />
+						</p:column>
 
-					<p:column headerText="Id" filterBy="#{testCaseSetup.id}">
-						<h:outputText value="#{testCaseSetup.id}" />
-					</p:column>
-
-					<p:column headerText="Description Setup"
-						filterBy="#{testCaseSetup.descriptionsetup}">
-						<h:outputText value="#{testCaseSetup.descriptionsetup}" />
-					</p:column>
-
-					<p:column headerText="Note" filterBy="#{testCaseSetup.note}">
-						<h:outputText value="#{testCaseSetup.note}" />
-					</p:column>
-				</p:dataTable>
-			</h:form>
-
+						<p:column headerText="Note" filterBy="#{testCaseSetup.note}">
+							<h:outputText value="#{testCaseSetup.note}" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</p:panel>
 			<p:dialog widgetVar="dlgInfo" modal="true" header="Infos">
 				<h:form id="frmInfo" prependId="false">
 					<h:panelGrid columns="2" styleClass="grid" cellpadding="5"

@@ -68,7 +68,16 @@ a.thirteen_1,a.thirteen_2,a.thirteen_3,a.thirteen_4
 	width: 150px;
 }
 a.first_1{
-	background-position:0px 0px; 
+	background-position:0px 0px;
+	filter: alpha(opacity = 30);
+	-moz-opacity: 0.30;
+	opacity: 0.30; 
+}
+a.first_1:hover{
+	background-position:0px 0px;
+	filter: alpha(opacity = 100);
+	-moz-opacity: 1;
+	opacity: 1; 
 }
 
 a.first_68{
@@ -89,12 +98,9 @@ a.first_3{
 }
 
 a.first_4{
-	background-position:-700px 0px; 
+	background-position:-600px 0px; 
 }
 
-a.first_5{
-	background-position:-900px 0px; 
-}
 a.second_1{
 	background-position:0px -110px; 
 	filter: alpha(opacity = 30);
@@ -138,7 +144,7 @@ a.second_66:hover{
 }
 
 a.second_4{
-	background-position:-700px -110px;
+	background-position:-600px -110px;
 }
 
 a.third_1{
@@ -183,7 +189,17 @@ a.third_3:hover{
 }
 
 a.third_4{
-	background-position:-700px -220px; 
+	background-position:-600px -220px;
+	filter: alpha(opacity = 30);
+	-moz-opacity: 0.30;
+	opacity: 0.30; 
+}
+
+a.third_4:hover{
+	background-position:-600px -220px;
+	filter: alpha(opacity = 100);
+	-moz-opacity: 1;
+	opacity: 1; 
 }
 
 a.third_5:hover{
@@ -580,164 +596,6 @@ a.ten_4{
 
 a.ten_4:hover{
 	background-position:-600px -990px;
-	filter: alpha(opacity = 100);
-	-moz-opacity: 1;
-	opacity: 1; 
-}
-
-a.eleven_1{
-	background-position:0px -1100px; 
-	filter: alpha(opacity = 30);
-	-moz-opacity: 0.30;
-	opacity: 0.30;
-}
-
-a.eleven_1:hover{
-	background-position:0px -1100px;
-	filter: alpha(opacity = 100);
-	-moz-opacity: 1;
-	opacity: 1; 
-}
-a.eleven_2{
-	background-position:-200px -1100px; 
-	filter: alpha(opacity = 30);
-	-moz-opacity: 0.30;
-	opacity: 0.30;
-}
-
-a.eleven_2:hover{
-	background-position:-200px -1100px;
-	filter: alpha(opacity = 100);
-	-moz-opacity: 1;
-	opacity: 1; 
-}
-a.eleven_3{
-	background-position:-400px -1100px; 
-	filter: alpha(opacity = 30);
-	-moz-opacity: 0.30;
-	opacity: 0.30;
-}
-
-a.eleven_3:hover{
-	background-position:-400px -1100px;
-	filter: alpha(opacity = 100);
-	-moz-opacity: 1;
-	opacity: 1; 
-}
-a.eleven_4{
-	background-position:-600px -1100px; 
-	filter: alpha(opacity = 30);
-	-moz-opacity: 0.30;
-	opacity: 0.30;
-}
-
-a.eleven_4:hover{
-	background-position:-600px -1100px;
-	filter: alpha(opacity = 100);
-	-moz-opacity: 1;
-	opacity: 1; 
-}
-a.twelve_1{
-	background-position:0px -1210px; 
-	filter: alpha(opacity = 30);
-	-moz-opacity: 0.30;
-	opacity: 0.30;
-}
-
-a.twelve_1:hover{
-	background-position:0px -1210px;
-	filter: alpha(opacity = 100);
-	-moz-opacity: 1;
-	opacity: 1; 
-}
-a.twelve_2{
-	background-position:-200px -1210px; 
-	filter: alpha(opacity = 30);
-	-moz-opacity: 0.30;
-	opacity: 0.30;
-}
-
-a.twelve_2:hover{
-	background-position:-200px -1210px;
-	filter: alpha(opacity = 100);
-	-moz-opacity: 1;
-	opacity: 1; 
-}
-a.twelve_3{
-	background-position:-400px -1210px; 
-	filter: alpha(opacity = 30);
-	-moz-opacity: 0.30;
-	opacity: 0.30;
-}
-
-a.twelve_3:hover{
-	background-position:-400px -1210px;
-	filter: alpha(opacity = 100);
-	-moz-opacity: 1;
-	opacity: 1; 
-}
-a.twelve_4{
-	background-position:-600px -1210px; 
-	filter: alpha(opacity = 30);
-	-moz-opacity: 0.30;
-	opacity: 0.30;
-}
-
-a.twelve_4:hover{
-	background-position:-600px -1210px;
-	filter: alpha(opacity = 100);
-	-moz-opacity: 1;
-	opacity: 1; 
-}
-
-a.thirteen_1{
-	background-position:-0px -1320px; 
-	filter: alpha(opacity = 30);
-	-moz-opacity: 0.30;
-	opacity: 0.30;
-}
-
-a.thirteen_1:hover{
-	background-position:-0px -1320px;
-	filter: alpha(opacity = 100);
-	-moz-opacity: 1;
-	opacity: 1; 
-}
-a.thirteen_2{
-	background-position:-200px -1320px; 
-	filter: alpha(opacity = 30);
-	-moz-opacity: 0.30;
-	opacity: 0.30;
-}
-
-a.thirteen_2:hover{
-	background-position:-200px -1320px;
-	filter: alpha(opacity = 100);
-	-moz-opacity: 1;
-	opacity: 1; 
-}
-a.thirteen_3{
-	background-position:-400px -1320px; 
-	filter: alpha(opacity = 30);
-	-moz-opacity: 0.30;
-	opacity: 0.30;
-}
-
-a.thirteen_3:hover{
-	background-position:-400px -1320px;
-	filter: alpha(opacity = 100);
-	-moz-opacity: 1;
-	opacity: 1; 
-}
-a.thirteen_4{
-	background-position:-600px -1320px; 
-	filter: alpha(opacity = 30);
-	-moz-opacity: 0.30;
-	opacity: 0.30;
-}
-
-a.thirteen_4:hover{
-	background-position:-600px -1320px;
 	filter: alpha(opacity = 100);
 	-moz-opacity: 1;
 	opacity: 1; 

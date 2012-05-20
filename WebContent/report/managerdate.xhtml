@@ -15,13 +15,16 @@
 			<p:panel header="Search Execution for Date" style="width:940px;">
 				<h:form id="frmEdit" prependId="false">
 					<h:panelGrid columns="1" styleClass="grid">
-						<h:outputText value="Username (*)" styleClass="label" />
-						<p:inputText
-							value="#{testCaseBean.testcase.testcasename}"
-							required="true" requiredMessage="Username: Required field"
-							size="50" />
-						<p:commandButton value="Search"
-							actionListener="#{testCaseBean.save}" ajax="false" />
+						<h:outputText value="Start Date (*)" styleClass="label" />
+						<p:calendar
+							value="#{testCaseSetupBean.testCaseSetup.descriptionsetup}" />
+						<h:outputText value="Finish Date (*)" styleClass="label" />
+						<p:calendar
+							value="#{testCaseSetupBean.testCaseSetup.descriptionsetup}" />
+						<h:panelGrid columns="1" styleClass="gridCenter">
+							<p:commandButton value="Search"
+								actionListener="#{testCaseSetupBean.update}" ajax="false" />
+						</h:panelGrid>
 					</h:panelGrid>
 				</h:form>
 			</p:panel>
