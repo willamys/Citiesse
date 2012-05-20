@@ -113,25 +113,6 @@
 							</p:commandLink></li>
 					</ui:repeat>
 				</ul>
-				<ul id="page-bar">
-					<ui:repeat value="#{flowImages.twelveline}" var="tmp">
-						<li><p:commandLink styleClass="twelve_#{tmp}"
-								actionListener="#{workflow.execute}" update=":frmInfoTwelve"
-								onclick="dlgInfoSec.show()">
-								<f:param name="idTwelve" value="#{tmp}" />
-							</p:commandLink></li>
-					</ui:repeat>
-				</ul>
-				<ul id="page-bar">
-					<ui:repeat value="#{flowImages.thirteenline}" var="tmp">
-						<li><p:commandLink styleClass="thirteen_#{tmp}"
-								actionListener="#{workflow.execute}" update=":frmInfoThirteen"
-								onclick="dlgInfoSec.show()">
-								<f:param name="idThirteen" value="#{tmp}" />
-							</p:commandLink></li>
-					</ui:repeat>
-				</ul>
-				
 			</h:form>
 			<p:dialog widgetVar="dlgInfo" header="Infos" closable="true"
 				width="500">
@@ -227,34 +208,7 @@
 					</h:panelGrid>
 				</h:form>
 			</p:dialog>
-			<p:dialog widgetVar="dlgInfoEleven" header="Infos" closable="true"
-				width="500">
-				<h:form id="frmInfoEleven" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="eleven_#{workflow.t.id}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-			<p:dialog widgetVar="dlgInfoTwelve" header="Infos" closable="true"
-				width="500">
-				<h:form id="frmInfoTwelve" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="twelve_#{workflow.t.id}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-			<p:dialog widgetVar="dlgInfoThirteen" header="Infos" closable="true"
-				width="500">
-				<h:form id="frmInfoThirteen" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="thirteen_#{workflow.t.id}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-			
+
 			<p:dialog widgetVar="dlgEdit" modal="true"
 				header="Update Test Case Setup">
 				<h:form id="frmEdit" prependId="false">
