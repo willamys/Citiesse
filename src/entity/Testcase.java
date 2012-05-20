@@ -11,6 +11,15 @@ public class Testcase implements java.io.Serializable {
 	private String descriptionsteps;
 	private String testcasename;
 	private Testcasesetup testcasesetup;
+	private String orderworkflow;
+
+	public String getOrderworkflow() {
+		return orderworkflow;
+	}
+
+	public void setOrderworkflow(String orderworkflow) {
+		this.orderworkflow = orderworkflow;
+	}
 
 	public Testcasesetup getTestcasesetup() {
 		return testcasesetup;
@@ -27,11 +36,12 @@ public class Testcase implements java.io.Serializable {
 		this.id = id;
 	}
 	
-	public Testcase(Integer id,String descriptionsteps, String testcasename, Testcasesetup testcasesetup) {
+	public Testcase(Integer id,String descriptionsteps, String testcasename, Testcasesetup testcasesetup, String orderworkflow) {
 		this.id = id;
 		this.descriptionsteps = descriptionsteps;
 		this.testcasename = testcasename;
 		this.testcasesetup = testcasesetup;
+		this.orderworkflow = orderworkflow;
 	}
 
 	public Integer getId() {

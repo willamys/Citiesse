@@ -15,5 +15,25 @@
 		<managed-bean-class>bean.TestCaseSetupBean</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>workflow</managed-bean-name>
+		<managed-bean-class>test.Workflow</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>redirectBean</managed-bean-name>
+		<managed-bean-class>bean.RedirectBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>logonBean</managed-bean-name>
+		<managed-bean-class>bean.LogonBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>flowImages</managed-bean-name>
+		<managed-bean-class>entity.FlowImages</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 
 </faces-config>

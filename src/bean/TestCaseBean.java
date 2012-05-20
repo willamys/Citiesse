@@ -21,7 +21,6 @@ public class TestCaseBean {
 
     private Testcase testcase = new Testcase();
     private List<Testcase> testCases;
-
     public TestCaseBean() {
     	//listAll();
     }
@@ -40,7 +39,7 @@ public class TestCaseBean {
 
     public List<Testcase> getTestCases() {
     	testCases = new ArrayList<Testcase>();
-    	testCases = getPersistence().listAllOrderBy("testcasename");
+    	testCases = getPersistence().listAllOrderBy("orderworkflow");
         return testCases;
     }
 
@@ -49,7 +48,7 @@ public class TestCaseBean {
     }
 
     private void listAll() {
-        testCases = getPersistence().listAllOrderBy("testcasename");
+        testCases = getPersistence().listAllOrderBy("orderworkflow");
     }
 
     public List<Testcase> autoComplete(String query) {
@@ -62,12 +61,11 @@ public class TestCaseBean {
         return suggestions;
     }
     
-    public void adjust() {
-    	
+    public void adjustSave() {
         testcase.setId(testcase.getId());
-        testcase.setDescriptionsteps(testcase.getDescriptionsteps().toLowerCase());
-        testcase.setTestcasename(testcase.getTestcasename().toLowerCase());
-        
+        testcase.setDescriptionsteps(testcase.getDescriptionsteps());
+        testcase.setTestcasename(testcase.getTestcasename());
+        testcase.setOrderworkflow(testcase.getOrderworkflow());
         Testcasesetup tsetup = new Testcasesetup();
     	tsetup.setNote("note");
     	tsetup.setDescriptionsetup("description");
@@ -76,9 +74,16 @@ public class TestCaseBean {
         tsetup.setTestcase(testcase);
     }
     
+  public void adjustUpdate() {
+        testcase.setId(testcase.getId());
+        testcase.setDescriptionsteps(testcase.getDescriptionsteps());
+        testcase.setTestcasename(testcase.getTestcasename());
+        testcase.setOrderworkflow(testcase.getOrderworkflow());
+    }
+    
     public String save() {
         try {
-            adjust();
+            adjustSave();
             getPersistence().save(testcase);
             listAll();
             new MessageBean().success();
@@ -90,7 +95,7 @@ public class TestCaseBean {
 
     public String update() {
         try {
-            adjust();
+            adjustUpdate();
             getPersistence().update(testcase);
             listAll();
             new MessageBean().success();

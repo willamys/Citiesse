@@ -7,7 +7,7 @@ package entity;
  */
 public class User implements java.io.Serializable {
 
-	private Integer iduser;
+	private Integer id;
 	private String login;
 	private String password;
 	private String type;
@@ -21,12 +21,12 @@ public class User implements java.io.Serializable {
 		this.type = type;
 	}
 
-	public Integer getIduser() {
-		return this.iduser;
+	public Integer getId() {
+		return this.id;
 	}
 
-	public void setIduser(Integer iduser) {
-		this.iduser = iduser;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getLogin() {

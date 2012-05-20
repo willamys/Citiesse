@@ -1,0 +1,175 @@
+			<h:form>
+				<p:commandButton value="Start GMS" icon="ui-icon ui-icon-play"
+					actionListener="#{workflow.execute1}" update="text"
+					onclick="dlgInfo.show()" type="button" />
+				<p:dialog widgetVar="dlgInf" header="Infos" closable="true"
+					width="500">
+					<p:imageCropper value="#{imageCropperBean.croppedImage}"
+						image="../images/GMS_Execution_Workflow_v1.0.png"
+						initialCoords="70,150,300,20" maxSize="300,150" />
+
+					<!-- left/rigth, height, width, top/down -->
+				</p:dialog>
+				<p:growl id="msgs" sticky="true" />
+
+			</h:form>
+			
+			<p:commandButton value="Next" icon="ui-icon ui-icon-seek-next"
+								actionListener="#{workflow.execute64}" update=":frmInfo"
+								ajax="false" />
+								
+										<p:dialog id="dialog" header="Login" widgetVar="dlg" modal="true">
+			<p:growl id="growl" showDetail="true" life="3000" />
+			<h:form>
+				<p:panelGrid columns="2" style="font-size:9pt;">
+					<h:outputLabel for="login" value="Login:" />
+					<p:inputText value="#{userBean.login}" id="login"
+						required="true" label="login" />
+
+					<h:outputLabel for="password" value="Password:" />
+					<h:inputSecret value="#{userBean.password}" id="password"
+						required="true" label="password" />
+
+					<f:facet name="footer">
+						<h:commandButton id="loginButton" value="Login"
+							action="#{userBean.login()}"/>
+					</f:facet>
+				</p:panelGrid>
+			</h:form>
+			</p:dialog>
+			
+			=====================================================
+			css
+			=====================================================
+			
+			#page {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#header {
+	width: 100%;
+	height: 50px;
+	border: 1px solid #000;
+	margin-bottom: 16px;
+}
+
+#content {
+	width: 100%;
+	height: 200px;
+	margin-right: 16px;
+	margin-bottom: 16px;
+	border: 1px solid #000;
+}
+
+#footer {
+	width: 100%;
+	height: 400px;
+	border: 1px solid #000;
+}
+
+.link a {
+	text-decoration: none;
+}
+
+.link a:HOVER {
+	text-decoration: underline;
+}
+
+.image {
+	background-image: url('../images/GMS_Execution_Workflow_v1.0.png');
+	width: auto;
+	height: auto;
+}
+
+.back_extern {
+	overflow: hidden;
+	height: auto;
+	width: 100%;
+}
+
+.back {
+	height: 100%;
+	width: 100%;
+}
+
+.back img {
+	width: 960px;
+	position: absolute;
+}
+
+.esmaecer {
+	background: url('../images/GMS_Execution_Workflow_v1.0.png');
+	overflow: hidden;
+	height: auto;
+	width: 960px;
+}
+
+.hidden,a.first_68,a.first_64,a.first_66,a.first_70,a.second_1 {
+	background-image: url('../images/GMS_Execution_Workflow_v1.0.png');
+	display: block;
+	height: 100px;
+	width: 200px;
+}
+
+a.first_68 {
+	background-position: 0px 0px;
+	filter: alpha(opacity =   30);
+	-moz-opacity: 0.30;
+	opacity: 0.30;
+}
+
+a.first_68:hover {
+	background-position: 0px 0px;
+	filter: alpha(opacity =   100);
+	-moz-opacity: 1;
+	opacity: 1;
+}
+
+a.first_64 {
+	background-position: -150px 0px;
+	filter: alpha(opacity =   30);
+	-moz-opacity: 0.30;
+	opacity: 0.30;
+}
+
+a.first_64:hover {
+	background-position: -150px 0px;
+	filter: alpha(opacity =   100);
+	-moz-opacity: 1;
+	opacity: 1;
+}
+
+a.first_66 {
+	background-position: -250px 0px;
+	border: 1px solid #000;
+	filter: alpha(opacity =   30);
+	-moz-opacity: 0.30;
+	opacity: 0.30;
+}
+
+a.first_66:hover {
+	background-position: -250px 0px;
+	filter: alpha(opacity =   100);
+	-moz-opacity: 1;
+	opacity: 1;
+}
+
+a.first_70 {
+	background-position: -400px 0px;
+	filter: alpha(opacity =   30);
+	-moz-opacity: 0.30;
+	opacity: 0.30;
+}
+
+a.first_70:hover {
+	background-position: -400px 0px;
+	filter: alpha(opacity =   100);
+	-moz-opacity: 1;
+	opacity: 1;
+}
+
+a.second_1 {
+	background-position: -400px 200px;
+	border: 1px solid #000;
+}
