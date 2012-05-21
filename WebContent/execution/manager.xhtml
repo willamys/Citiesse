@@ -28,7 +28,7 @@
 						<ui:repeat value="#{flowImages.secondline}" var="tmp">
 							<li><p:commandLink styleClass="second_#{tmp}"
 									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfoSec.show()">
+									onclick="dlgInfo.show()">
 									<f:param name="id" value="#{tmp}" />
 									<f:param name="css" value="second_#{tmp}" />
 								</p:commandLink></li>
@@ -115,6 +115,12 @@
 					<h:panelGrid columns="2" style="border:false;">
 						<p:commandLink styleClass="#{workflow.t.orderworkflow}" />
 						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
+						<p:selectOneMenu value="">
+							<f:selectItem itemValue="yes" itemLabel="yes"/>
+							<f:selectItem itemValue="conditional pass - provide explanation in adjacent cell" itemLabel="conditional pass - provide explanation in adjacent cell"/>
+							<f:selectItem itemValue="no" itemLabel="no"/>
+							<f:selectItem itemValue="not supported" itemLabel="not supported"/>
+						</p:selectOneMenu>
 					</h:panelGrid>
 				</h:form>
 			</p:dialog>

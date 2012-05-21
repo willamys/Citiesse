@@ -82,6 +82,7 @@ public class Workflow {
 	public void execute(){
 		String value = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
 		String css = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("css");
+		System.out.println(css);
 		t = new Testcase();
 		t.setOrderworkflow(css);
 		t.setDescriptionsteps(recoveryItemList(value));
