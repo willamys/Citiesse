@@ -24,12 +24,12 @@ public class FlowImages {
 	}
 	
 	public String[] getSecondline(){
-		secondline = new String[]{"1","2","66","4"};
+		secondline = new String[]{"1","66","3","4"};
 		return secondline;
 	}
 	
 	public String[] getThirdline(){
-		thirdline = new String[]{"1","2","3","4"};
+		thirdline = new String[]{"66","2","3","4"};
 		return thirdline;
 	}
 	

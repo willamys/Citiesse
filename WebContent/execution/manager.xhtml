@@ -14,15 +14,25 @@
 		<ui:define name="content">
 			<p:panel header="Execution GMS" style="height:1130px;">
 				<h:form>
-					<p:commandButton onclick="cdlgStart.show()" value="Start GMS"
-						icon="ui-icon ui-icon-play" />
-					<p:commandButton onclick="cdlgFinish.show()" value="Finished GMS"
-						icon="ui-icon ui-icon-stop" />
+					<p:toolbar>
+						<p:toolbarGroup align="center">
+							<p:commandButton onclick="cdlgStart.show()" value="Start GMS"
+								icon="ui-icon ui-icon-play"
+								title="Push this button to start the execution GMS." />
+							<p:commandButton onclick="cdlgFinish.show()" value="Finished GMS"
+								icon="ui-icon ui-icon-stop"
+								title="When the execution is finished, push this button." />
+							<p:commandButton onclick="cdlgFinish.show()" value="Generate SpreadSheet"
+								icon="ui-icon ui-icon-document"
+								title="When the execution is finished, push this button." />
+						</p:toolbarGroup>
+					</p:toolbar>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.firstline}" var="tmp">
 							<li><p:commandLink styleClass="first_#{tmp}"
 									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfo.show()">
+									onclick="dlgInfo.show()"
+									title="Tap to input result for test #{tmp}">
 									<f:param name="id" value="#{tmp}" />
 									<f:param name="css" value="first_#{tmp}" />
 								</p:commandLink></li>
@@ -32,7 +42,8 @@
 						<ui:repeat value="#{flowImages.secondline}" var="tmp">
 							<li><p:commandLink styleClass="second_#{tmp}"
 									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfo.show()">
+									onclick="dlgInfo.show()"
+									title="Tap to input result for test #{tmp}">
 									<f:param name="id" value="#{tmp}" />
 									<f:param name="css" value="second_#{tmp}" />
 								</p:commandLink></li>
@@ -41,54 +52,66 @@
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.thirdline}" var="tmp">
 							<li><p:commandLink styleClass="third_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfoThird"
-									onclick="dlgInfoSec.show()">
-									<f:param name="idThird" value="#{tmp}" />
+									actionListener="#{workflow.execute}" update=":frmInfo"
+									onclick="dlgInfo.show()"
+									title="Tap to input result for test #{tmp}">
+									<f:param name="id" value="#{tmp}" />
+									<f:param name="css" value="third_#{tmp}" />
 								</p:commandLink></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.fourline}" var="tmp">
 							<li><p:commandLink styleClass="four_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfoFour"
-									onclick="dlgInfoSec.show()">
-									<f:param name="idFour" value="#{tmp}" />
+									actionListener="#{workflow.execute}" update=":frmInfo"
+									onclick="dlgInfo.show()"
+									title="Tap to input result for test #{tmp}">
+									<f:param name="id" value="#{tmp}" />
+									<f:param name="css" value="four_#{tmp}" />
 								</p:commandLink></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.fiveline}" var="tmp">
 							<li><p:commandLink styleClass="five_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfoFive"
-									onclick="dlgInfoSec.show()">
-									<f:param name="idFive" value="#{tmp}" />
+									actionListener="#{workflow.execute}" update=":frmInfo"
+									onclick="dlgInfo.show()"
+									title="Tap to input result for test #{tmp}">
+									<f:param name="id" value="#{tmp}" />
+									<f:param name="css" value="five_#{tmp}" />
 								</p:commandLink></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.sixline}" var="tmp">
 							<li><p:commandLink styleClass="six_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfoSix"
-									onclick="dlgInfoSec.show()">
-									<f:param name="idSix" value="#{tmp}" />
+									actionListener="#{workflow.execute}" update=":frmInfo"
+									onclick="dlgInfo.show()"
+									title="Tap to input result for test #{tmp}">
+									<f:param name="id" value="#{tmp}" />
+									<f:param name="css" value="six_#{tmp}" />
 								</p:commandLink></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.sevenline}" var="tmp">
 							<li><p:commandLink styleClass="seven_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfoSeven"
-									onclick="dlgInfoSec.show()">
-									<f:param name="idSeven" value="#{tmp}" />
+									actionListener="#{workflow.execute}" update=":frmInfo"
+									onclick="dlgInfo.show()"
+									title="Tap to input result for test #{tmp}">
+									<f:param name="id" value="#{tmp}" />
+									<f:param name="css" value="seven_#{tmp}" />
 								</p:commandLink></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.eightline}" var="tmp">
 							<li><p:commandLink styleClass="eight_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfoEight"
-									onclick="dlgInfoSec.show()">
-									<f:param name="idEight" value="#{tmp}" />
+									actionListener="#{workflow.execute}" update=":frmInfo"
+									onclick="dlgInfo.show()"
+									title="Tap to input result for test #{tmp}">
+									<f:param name="id" value="#{tmp}" />
+									<f:param name="css" value="eight_#{tmp}" />
 								</p:commandLink></li>
 						</ui:repeat>
 					</ul>
@@ -96,30 +119,36 @@
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.nineline}" var="tmp">
 							<li><p:commandLink styleClass="nine_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfoNine"
-									onclick="dlgInfoSec.show()">
-									<f:param name="idNine" value="#{tmp}" />
+									actionListener="#{workflow.execute}" update=":frmInfo"
+									onclick="dlgInfo.show()"
+									title="Tap to input result for test #{tmp}">
+									<f:param name="id" value="#{tmp}" />
+									<f:param name="css" value="nine_#{tmp}" />
 								</p:commandLink></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.tenline}" var="tmp">
 							<li><p:commandLink styleClass="ten_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfoTen"
-									onclick="dlgInfoSec.show()">
-									<f:param name="idTen" value="#{tmp}" />
+									actionListener="#{workflow.execute}" update=":frmInfo"
+									onclick="dlgInfo.show()"
+									title="Tap to input result for test #{tmp}">
+									<f:param name="id" value="#{tmp}" />
+									<f:param name="css" value="ten_#{tmp}" />
 								</p:commandLink></li>
 						</ui:repeat>
 					</ul>
 				</h:form>
 			</p:panel>
-			<p:dialog widgetVar="dlgInfo" header="Infos" closable="true" modal="true">
+			<p:dialog widgetVar="dlgInfo" header="Infos" closable="true"
+				modal="true">
 				<h:form id="frmInfo" prependId="false">
-					<p:panel header="Test #{workflow.t.id}" >
+					<p:panel header="Test #{workflow.t.id}">
 						<h:panelGrid columns="2" style="border:false;">
 							<p:commandLink styleClass="#{workflow.t.orderworkflow}" />
-							<p:inputTextarea value="#{workflow.t.descriptionsteps}" readonly="true" />
-							<h:outputText value="Select the test result:" styleClass="label"/>
+							<p:inputTextarea value="#{workflow.t.descriptionsteps}"
+								readonly="true" />
+							<h:outputText value="Select the test result:" styleClass="label" />
 							<p:selectOneMenu value="#{resultBean.resultB.resulttest}">
 								<f:selectItem itemValue="yes" itemLabel="yes" />
 								<f:selectItem
@@ -129,11 +158,15 @@
 								<f:selectItem itemValue="not supported"
 									itemLabel="not supported" />
 							</p:selectOneMenu>
-							<h:outputText value="Comment:" styleClass="label"/>
-							<p:inputTextarea value="#{resultBean.resultB.comment}"/>
-							<p:commandButton action="#{resultBean.save()}" value="save" ajax="false">
-								<f:setPropertyActionListener target="#{resultBean.resultB.idtest}" value="#{workflow.idTest}"/>
-								<f:setPropertyActionListener target="#{resultBean.resultB.id}" value="#{executionTestBean.lastidinserted}"/>
+							<h:outputText value="Comment:" styleClass="label" />
+							<p:inputTextarea value="#{resultBean.resultB.comment}" />
+							<p:commandButton action="#{resultBean.save()}" value="save"
+								ajax="false">
+								<f:setPropertyActionListener
+									target="#{resultBean.resultB.idtest}"
+									value="#{workflow.idTest}" />
+								<f:setPropertyActionListener target="#{resultBean.resultB.id}"
+									value="#{executionTestBean.lastidinserted}" />
 							</p:commandButton>
 						</h:panelGrid>
 					</p:panel>
@@ -253,8 +286,15 @@
 			<h:form prependId="false">
 				<p:growl id="message" />
 				<p:confirmDialog id="confirmDialogGMSStart"
-					message="Are you sure that want to start a New GMS Execution?"
-					header="Start GMS" severity="alert" widgetVar="cdlgStart">
+					message="Before to continue is very important that you pay attention in the follow steps:
+						1. To start the Execution GMS push the test case displayed in the workflow;
+						2. Pay attention in name and number of the test;
+						3. When you to choose the test and push in the image, a dialog will show. 
+						4. Put the result in correspondent field;
+						5. Save.
+					 Are you sure that want to start a New GMS Execution?"
+					header="Start GMS" severity="alert" widgetVar="cdlgStart"
+					width="450">
 					<p:commandButton id="confirm1" value="Yes Sure" update="message"
 						oncomplete="cdlg.hide()" action="#{executionTestBean.save()}"
 						ajax="false">
@@ -271,8 +311,11 @@
 			<h:form prependId="false">
 				<p:growl id="messageFinish" />
 				<p:confirmDialog id="confirmDialogGMSFinish"
-					message="Are you sure that want to finish a New GMS Execution?"
-					header="Start GMS" severity="alert" widgetVar="cdlgFinish">
+					message="The execution was finished. Before the confirmation, all the results will be saved in the Database.
+					 Push the button 'Generate SpreadSheet' to get the all results for this execution.
+					  Are you sure that want to finish a New GMS Execution?"
+					header="Start GMS" severity="alert" widgetVar="cdlgFinish"
+					width="450">
 					<p:commandButton id="confirm2" value="Yes Sure"
 						update="messageFinish" oncomplete="cdlg.hide()"
 						action="#{executionTestBean.update()}" ajax="false">
