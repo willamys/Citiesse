@@ -22,7 +22,7 @@
 						ajax="false" />
 				</p:submenu>
 				<p:submenu label="Execution GMS" icon="ui-icon-pencil">
-					<p:menuitem value="New Execution GMS" onclick="cdlg.show();" />
+					<p:menuitem value="New Execution GMS" action="/execution/manager" ajax="false" />
 				</p:submenu>
 				<p:submenu label="Report" icon="ui-icon-search">
 					<p:menuitem value="Search for User" action="/report/manageruser" ajax="false" />
@@ -39,16 +39,6 @@
 					oncomplete="confirmation.hide()" action="/index.jsf" ajax="false" />
 				<p:commandButton id="decline" value="Not Yet"
 					onclick="confirmation.hide()" type="button" ajax="false" />
-			</p:confirmDialog>
-		</h:form>
-		<h:form prependId="false">
-			<p:growl id="message" />
-			<p:confirmDialog id="confirmDialogGMS" message="Are you sure that want to start a New GMS Execution?"
-				header="Start GMS" severity="alert" widgetVar="cdlg">
-				<p:commandButton id="confirm1" value="Yes Sure" update="message"
-					oncomplete="cdlg.hide()" action="/execution/manager" ajax="false" />
-				<p:commandButton id="decline1" value="Not Yet"
-					oncomplete="cdlg.hide()" action="/index.jsf" ajax="false" />
 			</p:confirmDialog>
 		</h:form>
 	</ui:composition>

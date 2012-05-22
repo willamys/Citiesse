@@ -11,6 +11,9 @@ import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  *
@@ -22,6 +25,8 @@ public class ExecutionTestBean {
 
 	private Executiontest executionTest = new Executiontest();
 	private List<Executiontest> executionTests = new ArrayList<Executiontest>();
+	private int lastidinserted = 0;
+	
 
 	public ExecutionTestBean() {
 	}
@@ -48,6 +53,14 @@ public class ExecutionTestBean {
 		this.executionTests = executionTests;
 	}
 
+	public int getLastidinserted() {
+		return lastidinserted;
+	}
+
+	public void setLastidinserted(int lastidinserted) {
+		this.lastidinserted = lastidinserted;
+	}
+
 	private void listAll() {
 		executionTests = getPersistence().listAllOrderBy("id");
 	}
@@ -61,55 +74,42 @@ public class ExecutionTestBean {
 		}
 		return suggestions;
 	}
-	
-    
     public void adjustSave() {
-    	String 
-        executionTest.setFinishdatatime(new UtilBean().formatDate(new Date()));
-        testcase.setTestcasename(testcase.getTestcasename());
-        testcase.setOrderworkflow(testcase.getOrderworkflow());
-        Testcasesetup tsetup = new Testcasesetup();
-    	tsetup.setNote("note");
-    	tsetup.setDescriptionsetup("description");
-    	
-        testcase.setTestcasesetup(tsetup);
-        tsetup.setTestcase(testcase);
+        executionTest.setStartdatatime(new UtilBean().formatDate(new Date()));
+        executionTest.setStarttime(new UtilBean().formatHour(new Date()));
+        executionTest.setFinishdatatime("");
+        executionTest.setFinishtime("");
     }
-    
   public void adjustUpdate() {
-        testcase.setId(testcase.getId());
-        testcase.setDescriptionsteps(testcase.getDescriptionsteps());
-        testcase.setTestcasename(testcase.getTestcasename());
-        testcase.setOrderworkflow(testcase.getOrderworkflow());
+	  executionTest.setFinishdatatime(new UtilBean().formatDate(new Date()));
+      executionTest.setFinishtime(new UtilBean().formatHour(new Date()));
     }
-    
     public String save() {
         try {
             adjustSave();
-            getPersistence().save(testcase);
+            lastidinserted = getPersistence().savereturn(executionTest);
             listAll();
             new MessageBean().success();
         } catch (Exception e) {
             new MessageBean().error();
         }
-        return "manager";
+        return "/execution/manager";
     }
 
     public String update() {
         try {
             adjustUpdate();
-            getPersistence().update(testcase);
+            getPersistence().update(executionTest);
             listAll();
             new MessageBean().success();
         } catch (Exception e) {
             new MessageBean().error();
         }
-        return "manager";
+        return "/execution/manager";
     }
-
     public void delete() {
         try {
-            getPersistence().delete(testcase);
+            getPersistence().delete(executionTest);
             listAll();
             new MessageBean().success();
         } catch (Exception e) {

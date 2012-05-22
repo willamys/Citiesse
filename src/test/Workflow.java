@@ -19,8 +19,16 @@ public class Workflow {
 	List<Testcase> list = new ArrayList<Testcase>();
 	TestCaseDAOImpl dao = new TestCaseDAOImpl();
 	Testcase t;
+	private int idTest;
 	
-	
+	public int getIdTest() {
+		return idTest;
+	}
+
+	public void setIdTest(int idTest) {
+		this.idTest = idTest;
+	}
+
 	public Testcase getT() {
 		return t;
 	}
@@ -82,11 +90,11 @@ public class Workflow {
 	public void execute(){
 		String value = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
 		String css = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("css");
-		System.out.println(css);
 		t = new Testcase();
 		t.setOrderworkflow(css);
 		t.setDescriptionsteps(recoveryItemList(value));
 		t.setId(Integer.parseInt(value));
+		idTest = Integer.parseInt(value);
 	}
 	
 	public void executeSec(){

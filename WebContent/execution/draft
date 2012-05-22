@@ -179,3 +179,76 @@ a.second_1 {
 					<p:progressBar id="progressBarClient" widgetVar="pbClient"
 						style="position:absolute; width:10px; height:300px;" />
 				</div>
+===============================================
+<h:outputLabel value="Select the check if you need to put image:" />
+							<p:selectBooleanCheckbox />
+							<h:outputLabel value="Select the image:" />
+							<p:fileUpload mode="advanced" fileUploadListener="#{fileUploadController.handleFileUpload}"
+							 dragDropSupport="true" update=":frmInfo">
+							</p:fileUpload>
+========================================================
+<p:dialog widgetVar="dlgInfo" header="Infos" closable="true" modal="true">
+				<h:form id="frmInfo" prependId="false" enctype="multipart/form-data">
+					<p:panel header="Test #{workflow.t.id}" >
+						<h:panelGrid columns="2" style="border:false;">
+							<p:commandLink styleClass="#{workflow.t.orderworkflow}" />
+							<p:inputTextarea value="#{workflow.t.descriptionsteps}" readonly="true" />
+							<h:outputLabel value="Select the test result:" />
+							<p:selectOneMenu value="#{resultBean.resultB.resulttest}">
+								<f:selectItem itemValue="yes" itemLabel="yes" />
+								<f:selectItem
+									itemValue="conditional pass - provide explanation in adjacent cell"
+									itemLabel="conditional pass - provide explanation in adjacent cell" />
+								<f:selectItem itemValue="no" itemLabel="no" />
+								<f:selectItem itemValue="not supported"
+									itemLabel="not supported" />
+							</p:selectOneMenu>
+							<h:outputLabel value="Comment:"/>
+							<p:inputTextarea value="#{resultBean.resultB.comment}"/>
+							<p:commandButton action="#{resultBean.save()}" value="save" ajax="false">
+								<f:param name="resulttest" value="#{resultBean.resultB.resulttest}"/>
+								<f:param name="comment" value="#{resultBean.resultB.comment}"/>
+								<f:setPropertyActionListener target="#{resultBean.resultB.id}" value="#{workflow.t.id}"/>
+								<f:setPropertyActionListener target="#{resultBean.resultB.idtest}" value="#{executionTestBean.lastidinserted}"/>
+							</p:commandButton>
+						</h:panelGrid>
+					</p:panel>
+				</h:form>
+			</p:dialog>
+			
+===========================================================================
+<p:dialog widgetVar="dlgInfo" header="Infos" closable="true"
+				modal="true">
+				<h:form id="frmInfo" prependId="false">
+					<p:panel header="Test">
+						<h:panelGrid columns="2" style="border:false;">
+							<h:outputText value="id" styleClass="label" />
+							<p:inputTextarea value="#{resultBean.resultB.id}" />
+							<h:outputText value="idTest" styleClass="label" />
+							<p:inputTextarea value="#{resultBean.resultB.idtest}" />
+							<h:outputText value="Select the test result:" styleClass="label" />
+							<p:selectOneMenu value="#{resultBean.resultB.resulttest}">
+								<f:selectItem itemValue="yes" itemLabel="yes" />
+								<f:selectItem
+									itemValue="conditional pass - provide explanation in adjacent cell"
+									itemLabel="conditional pass - provide explanation in adjacent cell" />
+								<f:selectItem itemValue="no" itemLabel="no" />
+								<f:selectItem itemValue="not supported"
+									itemLabel="not supported" />
+							</p:selectOneMenu>
+							<h:outputText value="Comment:" styleClass="label" />
+							<p:inputTextarea value="#{resultBean.resultB.comment}" />
+							<p:commandButton actionListener="#{resultBean.save}" value="save"
+								ajax="false" />
+						</h:panelGrid>
+					</p:panel>
+				</h:form>
+			</p:dialog>
+------------------------------------------------
+DROP TABLE IF EXISTS `cts_exec`.`result`;
+CREATE TABLE  `cts_exec`.`result` (
+  `id` int(11) NOT NULL,
+  `idtest` int(11) NOT NULL,
+  `resulttest` varchar(200) NOT NULL,
+  `comment` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

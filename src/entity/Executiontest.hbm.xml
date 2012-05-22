@@ -8,14 +8,20 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <property name="startdatatime" type="date">
+        <property name="startdatatime" type="string">
             <column name="startdatatime" length="10" not-null="true" />
         </property>
-        <property name="finishdatatime" type="date">
+        <property name="finishdatatime" type="string">
             <column name="finishdatatime" length="10" not-null="true" />
         </property>
         <property name="iduser" type="int">
             <column name="iduser" not-null="true" />
+        </property>
+        <property name="finishtime" type="string">
+            <column name="finishtime" length="10" not-null="true" />
+        </property>
+        <property name="starttime" type="string">
+            <column name="starttime" length="10" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

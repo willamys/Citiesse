@@ -15,5 +15,7 @@
 		<mapping resource="entity/Testcase.hbm.xml"/>
 		<mapping resource="entity/Testcasesetup.hbm.xml"/>
 		<mapping resource="entity/User.hbm.xml"/>
+		<mapping resource="entity/Executiontest.hbm.xml"/>
+		<mapping resource="entity/Result.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

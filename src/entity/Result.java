@@ -9,16 +9,16 @@ public class Result implements java.io.Serializable {
 
 	private int id;
 	private int idtest;
-	private String result;
+	private String resulttest;
 	private String comment;
 
 	public Result() {
 	}
 
-	public Result(int id, int idtest, String result, String comment) {
+	public Result(int id, int idtest, String resulttest, String comment) {
 		this.id = id;
 		this.idtest = idtest;
-		this.result = result;
+		this.resulttest = resulttest;
 		this.comment = comment;
 	}
 
@@ -38,12 +38,12 @@ public class Result implements java.io.Serializable {
 		this.idtest = idtest;
 	}
 
-	public String getResult() {
-		return this.result;
+	public String getResulttest() {
+		return this.resulttest;
 	}
 
-	public void setResult(String result) {
-		this.result = result;
+	public void setResulttest(String resulttest) {
+		this.resulttest = resulttest;
 	}
 
 	public String getComment() {

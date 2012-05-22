@@ -14,6 +14,10 @@
 		<ui:define name="content">
 			<p:panel header="Execution GMS" style="height:1130px;">
 				<h:form>
+					<p:commandButton onclick="cdlgStart.show()" value="Start GMS"
+						icon="ui-icon ui-icon-play" />
+					<p:commandButton onclick="cdlgFinish.show()" value="Finished GMS"
+						icon="ui-icon ui-icon-stop" />
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.firstline}" var="tmp">
 							<li><p:commandLink styleClass="first_#{tmp}"
@@ -109,19 +113,30 @@
 					</ul>
 				</h:form>
 			</p:panel>
-			<p:dialog widgetVar="dlgInfo" header="Infos" closable="true"
-				width="500">
+			<p:dialog widgetVar="dlgInfo" header="Infos" closable="true" modal="true">
 				<h:form id="frmInfo" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="#{workflow.t.orderworkflow}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-						<p:selectOneMenu value="">
-							<f:selectItem itemValue="yes" itemLabel="yes"/>
-							<f:selectItem itemValue="conditional pass - provide explanation in adjacent cell" itemLabel="conditional pass - provide explanation in adjacent cell"/>
-							<f:selectItem itemValue="no" itemLabel="no"/>
-							<f:selectItem itemValue="not supported" itemLabel="not supported"/>
-						</p:selectOneMenu>
-					</h:panelGrid>
+					<p:panel header="Test #{workflow.t.id}" >
+						<h:panelGrid columns="2" style="border:false;">
+							<p:commandLink styleClass="#{workflow.t.orderworkflow}" />
+							<p:inputTextarea value="#{workflow.t.descriptionsteps}" readonly="true" />
+							<h:outputText value="Select the test result:" styleClass="label"/>
+							<p:selectOneMenu value="#{resultBean.resultB.resulttest}">
+								<f:selectItem itemValue="yes" itemLabel="yes" />
+								<f:selectItem
+									itemValue="conditional pass - provide explanation in adjacent cell"
+									itemLabel="conditional pass - provide explanation in adjacent cell" />
+								<f:selectItem itemValue="no" itemLabel="no" />
+								<f:selectItem itemValue="not supported"
+									itemLabel="not supported" />
+							</p:selectOneMenu>
+							<h:outputText value="Comment:" styleClass="label"/>
+							<p:inputTextarea value="#{resultBean.resultB.comment}"/>
+							<p:commandButton action="#{resultBean.save()}" value="save" ajax="false">
+								<f:setPropertyActionListener target="#{resultBean.resultB.idtest}" value="#{workflow.idTest}"/>
+								<f:setPropertyActionListener target="#{resultBean.resultB.id}" value="#{executionTestBean.lastidinserted}"/>
+							</p:commandButton>
+						</h:panelGrid>
+					</p:panel>
 				</h:form>
 			</p:dialog>
 
@@ -234,6 +249,43 @@
 					</h:panelGrid>
 				</h:form>
 			</p:dialog>
+
+			<h:form prependId="false">
+				<p:growl id="message" />
+				<p:confirmDialog id="confirmDialogGMSStart"
+					message="Are you sure that want to start a New GMS Execution?"
+					header="Start GMS" severity="alert" widgetVar="cdlgStart">
+					<p:commandButton id="confirm1" value="Yes Sure" update="message"
+						oncomplete="cdlg.hide()" action="#{executionTestBean.save()}"
+						ajax="false">
+						<f:param name="starttime"
+							value="#{executionTestBean.executionTest.starttime}" />
+						<f:param name="startdatatime"
+							value="#{executionTestBean.executionTest.startdatatime}" />
+					</p:commandButton>
+					<p:commandButton id="decline1" value="Not Yet"
+						oncomplete="cdlg.hide()" action="/execution/manager" ajax="false" />
+				</p:confirmDialog>
+			</h:form>
+
+			<h:form prependId="false">
+				<p:growl id="messageFinish" />
+				<p:confirmDialog id="confirmDialogGMSFinish"
+					message="Are you sure that want to finish a New GMS Execution?"
+					header="Start GMS" severity="alert" widgetVar="cdlgFinish">
+					<p:commandButton id="confirm2" value="Yes Sure"
+						update="messageFinish" oncomplete="cdlg.hide()"
+						action="#{executionTestBean.update()}" ajax="false">
+						<f:param name="id" value="#{executionBean.lastidinserted}" />
+						<f:param name="finishtime"
+							value="#{executionTestBean.executionTest.finishtime}" />
+						<f:param name="finishdatatime"
+							value="#{executionTestBean.executionTest.finishdatatime}" />
+					</p:commandButton>
+					<p:commandButton id="decline2" value="Not Yet"
+						oncomplete="cdlg.hide()" action="/execution/manager" ajax="false" />
+				</p:confirmDialog>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 </body>

@@ -9,6 +9,8 @@ import java.util.List;
 public interface GenericDAO<T> {
 
     public void save(T object);
+    
+    public Integer savereturn(T object);
 
     public void saveOrUpdate(T object);
 

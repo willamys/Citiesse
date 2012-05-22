@@ -40,6 +40,15 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
         session.flush();
         session.beginTransaction().commit();
     }
+    @Override
+    public Integer savereturn(T object) {
+        Session session = getSession();
+        session.beginTransaction();
+        int id = (Integer) session.save(object);
+        session.flush();
+        session.beginTransaction().commit();
+        return id;
+    }
 
     @Override
     public void saveOrUpdate(T object) {
