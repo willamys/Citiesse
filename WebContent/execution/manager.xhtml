@@ -39,10 +39,10 @@
 								icon="ui-icon ui-icon-stop"
 								title="When the execution is finished, push this button."
 								disabled="#{executionTestBean.enableFinish}" />
-							<p:commandButton onclick="cdlgFinish.show()"
+							<p:commandButton
 								value="Generate SpreadSheet" icon="ui-icon ui-icon-document"
 								title="When the execution is finished, push this button."
-								disabled="#{executionTestBean.enableGenerate}" />
+								action="#{generateSpreadSheetBean.vai}" ajax="false"/>
 						</p:toolbarGroup>
 					</p:toolbar>
 					<ul id="page-bar">
