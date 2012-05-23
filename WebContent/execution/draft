@@ -252,3 +252,37 @@ CREATE TABLE  `cts_exec`.`result` (
   `resulttest` varchar(200) NOT NULL,
   `comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+===================================================
+<p:dialog widgetVar="dlgInfo" header="Infos" closable="true"
+				modal="true">
+				
+				<h:form id="frmInfo" prependId="false">
+					<p:panel header="Test #{workflow.t.id}">
+						<h:panelGrid columns="2" style="border:false;">
+							<p:commandLink styleClass="#{workflow.t.orderworkflow}" />
+							<p:inputTextarea value="#{workflow.t.descriptionsteps}"
+								readonly="true" />
+							<h:outputText value="Select the test result:" styleClass="label" />
+							<p:selectOneMenu value="#{resultBean.resultB.resulttest}">
+								<f:selectItem itemValue="yes" itemLabel="yes" />
+								<f:selectItem
+									itemValue="conditional pass - provide explanation in adjacent cell"
+									itemLabel="conditional pass - provide explanation in adjacent cell" />
+								<f:selectItem itemValue="no" itemLabel="no" />
+								<f:selectItem itemValue="not supported"
+									itemLabel="not supported" />
+							</p:selectOneMenu>
+							<h:outputText value="Comment:" styleClass="label" />
+							<p:inputTextarea value="#{resultBean.resultB.comment}" />
+							<p:commandButton action="#{resultBean.save()}" value="save"
+								ajax="false">
+								<f:setPropertyActionListener
+									target="#{resultBean.resultB.idtest}"
+									value="#{workflow.idTest}" />
+								<f:setPropertyActionListener target="#{resultBean.resultB.id}"
+									value="#{executionTestBean.lastidinserted}" />
+							</p:commandButton>
+						</h:panelGrid>
+					</p:panel>
+				</h:form>
+			</p:dialog>

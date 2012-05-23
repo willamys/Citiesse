@@ -16,126 +16,84 @@
 				<h:form>
 					<p:toolbar>
 						<p:toolbarGroup align="center">
-							<p:commandButton onclick="cdlgStart.show()" value="Start GMS"
+							<p:commandButton onclick="cdlgStart.show()"
+								value="Getting Started"
+								title="Push this button to Getting started to GMS.."
+								disabled="#{executionTestBean.enableGettingStart}" />
+							<p:commandButton onclick="dlgInfo.show()" value="Start"
 								icon="ui-icon ui-icon-play"
-								title="Push this button to start the execution GMS." />
+								title="Push this button to start the execution GMS."
+								actionListener="#{executionTestBean.executeFirst}"
+								disabled="#{executionTestBean.enableStart}" update=":frmInfo" />
+							<p:commandButton onclick="dlgInfo.show()"
+								value="Previous Test GMS" icon="ui-icon ui-icon-seek-prev"
+								title="Push this button to go previous test."
+								actionListener="#{executionTestBean.executePrevious}"
+								disabled="#{executionTestBean.enablePrev}" update=":frmInfo" />
+							<p:commandButton onclick="dlgInfo.show()" value="Next Test GMS"
+								icon="ui-icon ui-icon-seek-next"
+								title="Push this button to go next test."
+								actionListener="#{executionTestBean.executeNext}"
+								disabled="#{executionTestBean.enableNext}" update=":frmInfo" />
 							<p:commandButton onclick="cdlgFinish.show()" value="Finished GMS"
 								icon="ui-icon ui-icon-stop"
-								title="When the execution is finished, push this button." />
-							<p:commandButton onclick="cdlgFinish.show()" value="Generate SpreadSheet"
-								icon="ui-icon ui-icon-document"
-								title="When the execution is finished, push this button." />
+								title="When the execution is finished, push this button."
+								disabled="#{executionTestBean.enableFinish}" />
+							<p:commandButton onclick="cdlgFinish.show()"
+								value="Generate SpreadSheet" icon="ui-icon ui-icon-document"
+								title="When the execution is finished, push this button."
+								disabled="#{executionTestBean.enableGenerate}" />
 						</p:toolbarGroup>
 					</p:toolbar>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.firstline}" var="tmp">
-							<li><p:commandLink styleClass="first_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfo.show()"
-									title="Tap to input result for test #{tmp}">
-									<f:param name="id" value="#{tmp}" />
-									<f:param name="css" value="first_#{tmp}" />
-								</p:commandLink></li>
+							<li><p:commandLink styleClass="#{tmp}"/></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.secondline}" var="tmp">
-							<li><p:commandLink styleClass="second_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfo.show()"
-									title="Tap to input result for test #{tmp}">
-									<f:param name="id" value="#{tmp}" />
-									<f:param name="css" value="second_#{tmp}" />
-								</p:commandLink></li>
+							<li><p:commandLink styleClass="#{tmp}" /></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.thirdline}" var="tmp">
-							<li><p:commandLink styleClass="third_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfo.show()"
-									title="Tap to input result for test #{tmp}">
-									<f:param name="id" value="#{tmp}" />
-									<f:param name="css" value="third_#{tmp}" />
-								</p:commandLink></li>
+							<li><p:commandLink styleClass="third_#{tmp}" /></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.fourline}" var="tmp">
-							<li><p:commandLink styleClass="four_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfo.show()"
-									title="Tap to input result for test #{tmp}">
-									<f:param name="id" value="#{tmp}" />
-									<f:param name="css" value="four_#{tmp}" />
-								</p:commandLink></li>
+							<li><p:commandLink styleClass="four_#{tmp}" /></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.fiveline}" var="tmp">
-							<li><p:commandLink styleClass="five_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfo.show()"
-									title="Tap to input result for test #{tmp}">
-									<f:param name="id" value="#{tmp}" />
-									<f:param name="css" value="five_#{tmp}" />
-								</p:commandLink></li>
+							<li><p:commandLink styleClass="five_#{tmp}" /></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.sixline}" var="tmp">
-							<li><p:commandLink styleClass="six_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfo.show()"
-									title="Tap to input result for test #{tmp}">
-									<f:param name="id" value="#{tmp}" />
-									<f:param name="css" value="six_#{tmp}" />
-								</p:commandLink></li>
+							<li><p:commandLink styleClass="six_#{tmp}" /></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.sevenline}" var="tmp">
-							<li><p:commandLink styleClass="seven_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfo.show()"
-									title="Tap to input result for test #{tmp}">
-									<f:param name="id" value="#{tmp}" />
-									<f:param name="css" value="seven_#{tmp}" />
-								</p:commandLink></li>
+							<li><p:commandLink styleClass="seven_#{tmp}" /></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.eightline}" var="tmp">
-							<li><p:commandLink styleClass="eight_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfo.show()"
-									title="Tap to input result for test #{tmp}">
-									<f:param name="id" value="#{tmp}" />
-									<f:param name="css" value="eight_#{tmp}" />
-								</p:commandLink></li>
+							<li><p:commandLink styleClass="eight_#{tmp}" /></li>
 						</ui:repeat>
 					</ul>
 
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.nineline}" var="tmp">
-							<li><p:commandLink styleClass="nine_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfo.show()"
-									title="Tap to input result for test #{tmp}">
-									<f:param name="id" value="#{tmp}" />
-									<f:param name="css" value="nine_#{tmp}" />
-								</p:commandLink></li>
+							<li><p:commandLink styleClass="nine_#{tmp}" /></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.tenline}" var="tmp">
-							<li><p:commandLink styleClass="ten_#{tmp}"
-									actionListener="#{workflow.execute}" update=":frmInfo"
-									onclick="dlgInfo.show()"
-									title="Tap to input result for test #{tmp}">
-									<f:param name="id" value="#{tmp}" />
-									<f:param name="css" value="ten_#{tmp}" />
-								</p:commandLink></li>
+							<li><p:commandLink styleClass="ten_#{tmp}" /></li>
 						</ui:repeat>
 					</ul>
 				</h:form>
@@ -143,10 +101,10 @@
 			<p:dialog widgetVar="dlgInfo" header="Infos" closable="true"
 				modal="true">
 				<h:form id="frmInfo" prependId="false">
-					<p:panel header="Test #{workflow.t.id}">
+					<p:panel header="Test #{executionTestBean.t.id}">
 						<h:panelGrid columns="2" style="border:false;">
-							<p:commandLink styleClass="#{workflow.t.orderworkflow}" />
-							<p:inputTextarea value="#{workflow.t.descriptionsteps}"
+							<p:commandLink styleClass="_#{executionTestBean.t.id}" />
+							<p:inputTextarea value="#{executionTestBean.t.descriptionsteps}"
 								readonly="true" />
 							<h:outputText value="Select the test result:" styleClass="label" />
 							<p:selectOneMenu value="#{resultBean.resultB.resulttest}">
@@ -160,126 +118,14 @@
 							</p:selectOneMenu>
 							<h:outputText value="Comment:" styleClass="label" />
 							<p:inputTextarea value="#{resultBean.resultB.comment}" />
-							<p:commandButton action="#{resultBean.save()}" value="save"
-								ajax="false">
-								<f:setPropertyActionListener
-									target="#{resultBean.resultB.idtest}"
-									value="#{workflow.idTest}" />
-								<f:setPropertyActionListener target="#{resultBean.resultB.id}"
+							<p:commandButton actionListener="#{resultBean.save()}"
+								value="save" ajax="false">
+								<f:param name="idtest" value="#{executionTestBean.idTest}" />
+								<f:param name="idExec"
 									value="#{executionTestBean.lastidinserted}" />
 							</p:commandButton>
 						</h:panelGrid>
 					</p:panel>
-				</h:form>
-			</p:dialog>
-
-			<p:dialog widgetVar="dlgInfoSec" header="Infos" closable="true"
-				width="500">
-				<h:form id="frmInfoSec" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="second_#{workflow.t.id}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-
-			<p:dialog widgetVar="dlgInfoThird" header="Infos" closable="true"
-				width="500">
-				<h:form id="frmInfoThird" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="third_#{workflow.t.id}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-
-			<p:dialog widgetVar="dlgInfoFour" header="Infos" closable="true"
-				width="500">
-				<h:form id="frmInfoFour" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="four_#{workflow.t.id}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-			<p:dialog widgetVar="dlgInfoFive" header="Infos" closable="true"
-				width="500">
-				<h:form id="frmInfoFive" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="five_#{workflow.t.id}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-			<p:dialog widgetVar="dlgInfoSix" header="Infos" closable="true"
-				width="500">
-				<h:form id="frmInfoSix" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="six_#{workflow.t.id}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-			<p:dialog widgetVar="dlgInfoSeven" header="Infos" closable="true"
-				width="500">
-				<h:form id="frmInfoSeven" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="seven_#{workflow.t.id}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-			<p:dialog widgetVar="dlgInfoEight" header="Infos" closable="true"
-				width="500">
-				<h:form id="frmInfoEight" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="eight_#{workflow.t.id}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-			<p:dialog widgetVar="dlgInfoNine" header="Infos" closable="true"
-				width="500">
-				<h:form id="frmInfoNine" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="nine_#{workflow.t.id}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-
-			<p:dialog widgetVar="dlgInfoTen" header="Infos" closable="true"
-				width="500">
-				<h:form id="frmInfoTen" prependId="false">
-					<h:panelGrid columns="2" style="border:false;">
-						<p:commandLink styleClass="ten_#{workflow.t.id}" />
-						<p:inputTextarea value="#{workflow.t.descriptionsteps}" />
-					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-
-			<p:dialog widgetVar="dlgEdit" modal="true"
-				header="Update Test Case Setup">
-				<h:form id="frmEdit" prependId="false">
-					<h:panelGrid columns="2" styleClass="grid" cellpadding="5"
-						cellspacing="5">
-						<h:outputText value="Id: #{testCaseSetupBean.testCaseSetup.id}"
-							styleClass="label" />
-						<h:inputHidden value="#{testCaseSetupBean.testCaseSetup.id}"
-							size="42" />
-
-						<h:outputText value="Description Setup (*)" styleClass="label" />
-						<p:editor
-							value="#{testCaseSetupBean.testCaseSetup.descriptionsetup}" />
-
-						<h:outputText value="Note (*)" styleClass="label" />
-						<p:editor value="#{testCaseSetupBean.testCaseSetup.note}" />
-
-						<h:panelGrid columns="1" styleClass="gridCenter">
-							<p:commandButton value="Save"
-								actionListener="#{testCaseSetupBean.update}" ajax="false" />
-						</h:panelGrid>
-					</h:panelGrid>
 				</h:form>
 			</p:dialog>
 
@@ -293,9 +139,9 @@
 						4. Put the result in correspondent field;
 						5. Save.
 					 Are you sure that want to start a New GMS Execution?"
-					header="Start GMS" severity="alert" widgetVar="cdlgStart"
+					header="Getting Started" severity="alert" widgetVar="cdlgStart"
 					width="450">
-					<p:commandButton id="confirm1" value="Yes Sure" update="message"
+					<p:commandButton id="confirm1" value="Yes Sure"
 						oncomplete="cdlg.hide()" action="#{executionTestBean.save()}"
 						ajax="false">
 						<f:param name="starttime"

@@ -7,7 +7,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author italobruno
+ * @author
  */
 @ManagedBean
 @RequestScoped
@@ -27,11 +27,11 @@ public class MessageBean {
 
     public void success() {
         add(FacesMessage.SEVERITY_INFO,
-                "TransaÃ§Ã£o executada com sucesso!");
+                "Transação executada com sucesso!");
     }
 
     public void error() {
         add(FacesMessage.SEVERITY_ERROR,
-                "Houve algum problema ao tentar executar a transaÃ§Ã£o!");
+                "Houve algum problema ao tentar executar a transação!");
     }
 }

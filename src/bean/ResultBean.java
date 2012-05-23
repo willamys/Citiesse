@@ -76,14 +76,14 @@ public class ResultBean {
 	}
 	public void save() {
 		try {
-			//String idtest = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idtest");
-			//String comm = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("comment");
+			String idtest = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idtest");
+			String idExec = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idExec");
 //			resultB.setId(Integer.parseInt(id));
-			resultB.setId(resultB.getId());
+			resultB.setId(Integer.parseInt(idExec));
 			resultB.setResulttest(resultB.getResulttest());
 			resultB.setComment(resultB.getComment());
-			resultB.setIdtest(resultB.getIdtest());
-//			resultB.setIdtest(Integer.parseInt(idtest));
+		//	resultB.setIdtest(resultB.getIdtest());
+			resultB.setIdtest(Integer.parseInt(idtest));
 			
 		//	System.out.println(res);
 			//System.out.println(comm);

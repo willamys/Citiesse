@@ -48,10 +48,10 @@
 }
 
 .hidden, 
-a.first_1, a.first_68, a.first_3, a.first_4,a.first_5,
-a.second_1,a.second_66,a.second_3,a.second_4,
-a.third_66,a.third_2,a.third_3,a.third_4,a.third_5,
-a.four_1,a.four_2,a.four_3,a.four_4,
+a.first_1, a._68, a.first_3, a.first_4,
+a.second_1,a._66,a.second_3,a.second_4,
+a.third_66,a.third_64,a.third_65,a.third_56,a.third_5,
+a.four_52,a.four_2,a.four_3,a.four_4,
 a.five_1,a.five_2,a.five_3,a.five_4,
 a.six_1,a.six_2,a.six_3,a.six_4,
 a.seven_1,a.seven_2,a.seven_3,a.seven_4,
@@ -80,13 +80,13 @@ a.first_1:hover{
 	opacity: 1; 
 }
 
-a.first_68{
+a._68{
 	background-position:-200px 0px; 
 	filter: alpha(opacity = 30);
 	-moz-opacity: 0.30;
 	opacity: 0.30;
 }
-a.first_68:hover{
+a._68:hover{
 	background-position:-200px 0px; 
 	filter: alpha(opacity = 100);
 	-moz-opacity: 1;
@@ -115,14 +115,14 @@ a.second_1:hover{
 	opacity: 1; 
 }
 
-a.second_66{
+a._66{
 	background-position:-200px -110px; 
 	filter: alpha(opacity = 30);
 	-moz-opacity: 0.30;
 	opacity: 0.30;
 }
 
-a.second_66:hover{
+a._66:hover{
 	background-position:-200px -110px;
 	filter: alpha(opacity = 100);
 	-moz-opacity: 1;
@@ -161,41 +161,41 @@ a.third_66:hover{
 	opacity: 1; 
 }
 
-a.third_2{
+a.third_64{
 	background-position:-200px -220px; 
 	filter: alpha(opacity = 30);
 	-moz-opacity: 0.30;
 	opacity: 0.30;
 }
 
-a.third_2:hover{
+a.third_64:hover{
 	background-position:-200px -220px;
 	filter: alpha(opacity = 100);
 	-moz-opacity: 1;
 	opacity: 1; 
 }
-a.third_3{
+a.third_65{
 	background-position:-400px -220px; 
 	filter: alpha(opacity = 30);
 	-moz-opacity: 0.30;
 	opacity: 0.30;
 }
 
-a.third_3:hover{
+a.third_65:hover{
 	background-position:-400px -220px;
 	filter: alpha(opacity = 100);
 	-moz-opacity: 1;
 	opacity: 1; 
 }
 
-a.third_4{
+a.third_56{
 	background-position:-600px -220px;
 	filter: alpha(opacity = 30);
 	-moz-opacity: 0.30;
 	opacity: 0.30; 
 }
 
-a.third_4:hover{
+a.third_56:hover{
 	background-position:-600px -220px;
 	filter: alpha(opacity = 100);
 	-moz-opacity: 1;
@@ -217,14 +217,14 @@ a.third_5{
 }
 
 
-a.four_1{
+a.four_52{
 	background-position:0px -330px; 
 	filter: alpha(opacity = 30);
 	-moz-opacity: 0.30;
 	opacity: 0.30;
 }
 
-a.four_1:hover{
+a.four_52:hover{
 	background-position:0px -330px;
 	filter: alpha(opacity = 100);
 	-moz-opacity: 1;

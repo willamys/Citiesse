@@ -13,7 +13,7 @@ import logger.SystemLogger;
 
 /**
  *
- * @author italobruno
+ * @author
  */
 public class SessionFilter implements HttpSessionListener {
 
