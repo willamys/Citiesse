@@ -34,11 +34,11 @@ public class ExecutionTestBean {
 	private int indice = 0;
 	private int idTest;
 	private int lastidinserted = 0;
-	private boolean enableStart = true;
-	private boolean enableGenerate = true;
-	private boolean enableNext = true;
-	private boolean enablePrev = true;
-	private boolean enableFinish = true;
+	private boolean enableStart = false;
+	private boolean enableGenerate = false;
+	private boolean enableNext = false;
+	private boolean enablePrev = false;
+	private boolean enableFinish = false;
 	private boolean enableGettingStart = false;
 
 
