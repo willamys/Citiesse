@@ -19,30 +19,30 @@ public class FlowImages {
 	private String [] tenline;
 	
 	public String[] getFirstline(){
-		firstline = new String[]{"first_1","_68","first_2","first_4"};
+		firstline = new String[]{"first_1","_68","first_3","first_4"};
 		return firstline;
 	}
 	
 	public String[] getSecondline(){
-		secondline = new String[]{"second_1","_66","second_3","second_4"};
+		secondline = new String[]{"second_1","_266","second_3","second_4"};
 		return secondline;
 	}
 	
 	public String[] getThirdline(){
-		thirdline = new String[]{"66","64","65","56"};
+		thirdline = new String[]{"_66","_64","_65","_56"};
 		return thirdline;
 	}
 	
 	public String[] getFourline(){
-		fourline = new String[]{"52","2","3","4"};
+		fourline = new String[]{"_52","_71","_73","_67"};
 		return fourline;
 	}
 	public String[] getFiveline(){
-		fiveline = new String[]{"1","2","3","4"};
+		fiveline = new String[]{"five_1","five_2","five_3","five_4"};
 		return fiveline;
 	}
 	public String[] getSixline(){
-		sixline = new String[]{"1","2","3","4"};
+		sixline = new String[]{"_55","_69","_46","_36"};
 		return sixline;
 	}
 	public String[] getSevenline(){

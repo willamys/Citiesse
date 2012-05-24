@@ -57,7 +57,7 @@ public class GenerateSpreadSheetBean {
 		List<Result> list = new ArrayList<Result>();
 		ResultDAOImpl tdao = new ResultDAOImpl();
 
-
+		//Integer.parseInt(value)
 		list = tdao.listAllWhere("idexec", Integer.parseInt(value));
 
 		int i, linha = 6, coluna = 4; 
@@ -69,18 +69,20 @@ public class GenerateSpreadSheetBean {
 
 		for( i = 0; i < list.size(); i++ ){
 			//dado = JOptionPane.showInputDialog(null,"Digite o dado para armazenar na celula " + i+1 +":");
-
-
-			System.out.println( list.get(i).getResulttest());
-			System.out.println(list.get(i).getIdtest());
-			System.out.println(list.get(i).getComment());
-			comunica.metodos("escrever", coluna, list.get(i).getIdtest(), list.get(i).getResulttest());
-			System.out.println("Linha: " + i);
+			if(list.get(i).getIdtest() > 36){
+				System.out.println(list.get(i).getResulttest());
+				System.out.println(list.get(i).getIdtest());
+				System.out.println(list.get(i).getComment());
+				comunica.metodos("escrever", coluna, list.get(i).getIdtest(), list.get(i).getResulttest());
+				System.out.println("Linha: " + i);
+			}else{
+				comunica.metodos("escrever", coluna, list.get(i).getIdtest(), list.get(i).getResulttest());
+			}
 			if( i == 31 ){
 				i = 35;
 			}
 		}
-		
+		new MessageBean().success();
 		getSession().invalidate();
 		System.out.println("fim");
 		if( flag == 2 ){

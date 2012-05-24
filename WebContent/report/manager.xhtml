@@ -12,7 +12,7 @@
 <body>
 	<ui:composition template="./../template/commonLayout.xhtml">
 		<ui:define name="content">
-			<p:panel header="Execution GMS" style="height:1130px;">
+			<p:panel header="Executions GMS" style="height:1130px;">
 				<h:form>
 					<p:toolbar>
 						<p:toolbarGroup align="center">
@@ -43,7 +43,7 @@
 								icon="ui-icon ui-icon-document"
 								title="When the execution is finished, push this button."
 								action="#{generateSpreadSheetBean.vai}" ajax="false"
-								disabled="false">
+								disabled="#{executionTestBean.enableGenerate}">
 								<f:param name="id_execution"
 									value="#{executionTestBean.lastidinserted}"></f:param>
 							</p:commandButton>
