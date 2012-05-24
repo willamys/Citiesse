@@ -25,7 +25,7 @@ public class TestCaseBeanTest {
 	@Test
 	public void test() {
 		testCase.setId(1);
-		testCase.setOrderworkflow("1");
+		testCase.setOrderworkflow(1);
 		testCase.setTestcasename("Teste 1");
 		testCase.setDescriptionsteps("Description of the test");
 		
@@ -39,7 +39,7 @@ public class TestCaseBeanTest {
 	@Test
 	public void test2() {
 		testCase.setId(2);
-		testCase.setOrderworkflow("2");
+		testCase.setOrderworkflow(2);
 		testCase.setTestcasename("Teste 2");
 		testCase.setDescriptionsteps("Description of the test 2");
 		
@@ -53,7 +53,7 @@ public class TestCaseBeanTest {
 	@Test
 	public void test3() {
 		testCase.setId(3);
-		testCase.setOrderworkflow("3");
+		testCase.setOrderworkflow(3);
 		testCase.setTestcasename("Teste 3");
 		testCase.setDescriptionsteps("Description of the test 3");
 		

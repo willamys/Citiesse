@@ -15,7 +15,6 @@
 			<p:panel header="Teste Cases Manager">  
 				<h:form id="form" prependId="false">
 					<p:growl id="msgs" sticky="true" />
-
 					<p:contextMenu for="testcase">
 						<p:menuitem value="Propeties" icon="ui-icon ui-icon-search"
 							update=":frmInfo" onclick="dlgInfo.show()" />
@@ -52,7 +51,7 @@
 
 						<p:column headerText="Description Steps"
 							filterBy="#{testcase.descriptionsteps}">
-							<h:outputText value="#{testcase.descriptionsteps}" />
+							<h:outputText value="#{testcase.descriptionsteps}" escape="false"/>
 						</p:column>
 					</p:dataTable>
 				</h:form>
@@ -68,7 +67,7 @@
 						<h:outputText value="#{testCaseBean.testcase.testcasename}" />
 
 						<h:outputText value="Description Steps" styleClass="label" />
-						<h:outputText value="#{testCaseBean.testcase.descriptionsteps}" />
+						<h:outputText value="#{testCaseBean.testcase.descriptionsteps}"  />
 
 						<h:outputText value="Order Workflow" styleClass="label" />
 						<h:outputText value="#{testCaseBean.testcase.orderworkflow}" />

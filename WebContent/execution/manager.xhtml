@@ -39,15 +39,19 @@
 								icon="ui-icon ui-icon-stop"
 								title="When the execution is finished, push this button."
 								disabled="#{executionTestBean.enableFinish}" />
-							<p:commandButton
-								value="Generate SpreadSheet" icon="ui-icon ui-icon-document"
+							<p:commandButton value="Generate SpreadSheet"
+								icon="ui-icon ui-icon-document"
 								title="When the execution is finished, push this button."
-								action="#{generateSpreadSheetBean.vai}" ajax="false"/>
+								action="#{generateSpreadSheetBean.vai}" ajax="false"
+								disabled="#{executionTestBean.enableGenerate}">
+								<f:param name="id_execution"
+									value="#{executionTestBean.lastidinserted}"></f:param>
+							</p:commandButton>
 						</p:toolbarGroup>
 					</p:toolbar>
 					<ul id="page-bar">
 						<ui:repeat value="#{flowImages.firstline}" var="tmp">
-							<li><p:commandLink styleClass="#{tmp}"/></li>
+							<li><p:commandLink styleClass="#{tmp}" /></li>
 						</ui:repeat>
 					</ul>
 					<ul id="page-bar">
@@ -100,16 +104,16 @@
 			</p:panel>
 			<p:dialog widgetVar="dlgInfo" header="Infos" closable="true"
 				modal="true">
-				<h:form id="frmInfo" prependId="false">
+				<h:form id="frmInfo" prependId="false" >
 					<p:panel header="Test #{executionTestBean.t.id}">
 						<h:panelGrid columns="2" style="border:false;">
 							<p:commandLink styleClass="_#{executionTestBean.t.id}" />
-							<p:inputTextarea value="#{executionTestBean.t.descriptionsteps}"
-								readonly="true" />
+							<p:editor width="800" height="300" control="" value="#{executionTestBean.t.descriptionsteps}">
+							</p:editor>
 							<h:outputText value="Select the test result:" styleClass="label" />
 							<p:selectOneMenu value="#{resultBean.resultB.resulttest}">
 								<f:selectItem itemValue="yes" itemLabel="yes" />
-								<f:selectItem
+								<f:selectItem	
 									itemValue="conditional pass - provide explanation in adjacent cell"
 									itemLabel="conditional pass - provide explanation in adjacent cell" />
 								<f:selectItem itemValue="no" itemLabel="no" />

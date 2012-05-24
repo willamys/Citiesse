@@ -34,11 +34,11 @@ public class ExecutionTestBean {
 	private int indice = 0;
 	private int idTest;
 	private int lastidinserted = 0;
-	private boolean enableStart = false;
-	private boolean enableGenerate = false;
-	private boolean enableNext = false;
-	private boolean enablePrev = false;
-	private boolean enableFinish = false;
+	private boolean enableStart = true;
+	private boolean enableGenerate = true;
+	private boolean enableNext = true;
+	private boolean enablePrev = true;
+	private boolean enableFinish = true;
 	private boolean enableGettingStart = false;
 
 
@@ -181,29 +181,29 @@ public class ExecutionTestBean {
 		}
 		return description;
 	}
-	public void execute(){
-		String value = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
-		String css = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("css");
-		listTemp.clear();
-		if(value.equals("52")){
-			for (int i = 52; i < 55; i++) {
-				t = new Testcase();
-				t.setOrderworkflow(css);
-				t.setDescriptionsteps(recoveryItemList(String.valueOf(i)));
-				t.setId(i);
-				idTest = Integer.parseInt(value);
-				listTemp.add(t);
-			}
-			System.out.println(listTemp.size());
-		}else{
-			t = new Testcase();
-			t.setOrderworkflow(css);
-			t.setDescriptionsteps(recoveryItemList(value));
-			t.setId(Integer.parseInt(value));
-			idTest = Integer.parseInt(value);
-			listTemp.add(t);
-		}
-	}
+//	public void execute(){
+//		String value = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
+//		String css = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("css");
+//		listTemp.clear();
+//		if(value.equals("52")){
+//			for (int i = 52; i < 55; i++) {
+//				t = new Testcase();
+//				t.setOrderworkflow(css);
+//				t.setDescriptionsteps(recoveryItemList(String.valueOf(i)));
+//				t.setId(i);
+//				idTest = Integer.parseInt(value);
+//				listTemp.add(t);
+//			}
+//			System.out.println(listTemp.size());
+//		}else{
+//			t = new Testcase();
+//			t.setOrderworkflow(css);
+//			t.setDescriptionsteps(recoveryItemList(value));
+//			t.setId(Integer.parseInt(value));
+//			idTest = Integer.parseInt(value);
+//			listTemp.add(t);
+//		}
+//	}
 
 	public void executeFirst(){
 		if(indice == 0){

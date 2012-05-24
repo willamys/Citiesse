@@ -8,6 +8,7 @@ package entity;
 public class Result implements java.io.Serializable {
 
 	private int id;
+	private int idexec;
 	private int idtest;
 	private String resulttest;
 	private String comment;
@@ -15,8 +16,9 @@ public class Result implements java.io.Serializable {
 	public Result() {
 	}
 
-	public Result(int id, int idtest, String resulttest, String comment) {
+	public Result(int id, int idexec, int idtest, String resulttest, String comment) {
 		this.id = id;
+		this.idexec = idexec;
 		this.idtest = idtest;
 		this.resulttest = resulttest;
 		this.comment = comment;
@@ -28,6 +30,14 @@ public class Result implements java.io.Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getIdexec() {
+		return idexec;
+	}
+
+	public void setIdexec(int idexec) {
+		this.idexec = idexec;
 	}
 
 	public int getIdtest() {

@@ -6,7 +6,11 @@
     <class name="entity.Result" table="result" catalog="cts_exec">
         <id name="id" type="int">
             <column name="id" />
+            <generator class="identity" />
         </id>
+        <property name="idexec" type="int">
+            <column name="idexec" not-null="true" />
+        </property>
         <property name="idtest" type="int">
             <column name="idtest" not-null="true" />
         </property>

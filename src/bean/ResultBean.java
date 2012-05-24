@@ -64,7 +64,7 @@ public class ResultBean {
 	}
 	public void adjustSave() {
 		
-		resultB.setId(resultB.getId());
+		resultB.setIdexec(resultB.getId());
 		resultB.setResulttest(resultB.getResulttest());
 		resultB.setComment(resultB.getComment());
 		resultB.setIdtest(resultB.getIdtest());
@@ -79,7 +79,7 @@ public class ResultBean {
 			String idtest = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idtest");
 			String idExec = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idExec");
 //			resultB.setId(Integer.parseInt(id));
-			resultB.setId(Integer.parseInt(idExec));
+			resultB.setIdexec(Integer.parseInt(idExec));
 			resultB.setResulttest(resultB.getResulttest());
 			resultB.setComment(resultB.getComment());
 		//	resultB.setIdtest(resultB.getIdtest());

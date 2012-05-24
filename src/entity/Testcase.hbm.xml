@@ -13,8 +13,8 @@
         <property name="testcasename" type="string">
             <column name="testcasename" length="200" not-null="true" />
         </property>
-        <property name="orderworkflow" type="string">
-            <column name="orderworkflow" length="200" not-null="true" />
+        <property name="orderworkflow" type="int">
+            <column name="orderworkflow" not-null="true" />
         </property>
         <one-to-one name="testcasesetup" class="entity.Testcasesetup" cascade="save-update,delete"></one-to-one>
     </class>
