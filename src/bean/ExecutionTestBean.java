@@ -39,7 +39,7 @@ public class ExecutionTestBean {
 	private boolean enableNext = true;
 	private boolean enablePrev = true;
 	private boolean enableFinish = true;
-	private boolean enableGettingStart = false;
+	private boolean enableGettingStart = true;
 
 
 	/**buttons**/
